@@ -39,7 +39,7 @@
   <Import Project="..\Lib.code\Lib.code.projitems" Label="Shared" />
 
   <ItemGroup>
-    <PackageReference Include="EntityAnnotations" Version="2.0.1-localbuild" />
+    <PackageReference Include="EntityAnnotations" Version="2.0.1" />
   </ItemGroup>
 
 </Project>
