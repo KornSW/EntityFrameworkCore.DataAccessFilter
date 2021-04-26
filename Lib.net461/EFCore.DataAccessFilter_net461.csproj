@@ -36,8 +36,8 @@
     <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityAnnotations, Version=2.0.1.17369, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\(Vendor)\NuGet\EntityAnnotations.2.0.1\lib\net46\EntityAnnotations.dll</HintPath>
+    <Reference Include="EntityAnnotations, Version=2.0.1.387, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\(Vendor)\NuGet\EntityAnnotations.2.0.1.387\lib\net46\EntityAnnotations.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

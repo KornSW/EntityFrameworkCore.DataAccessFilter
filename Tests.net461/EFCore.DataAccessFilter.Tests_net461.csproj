@@ -41,8 +41,8 @@
     <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityAnnotations, Version=2.0.1.17369, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\(Vendor)\NuGet\EntityAnnotations.2.0.1\lib\net46\EntityAnnotations.dll</HintPath>
+    <Reference Include="EntityAnnotations, Version=2.0.1.387, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\(Vendor)\NuGet\EntityAnnotations.2.0.1.387\lib\net46\EntityAnnotations.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.TestPlatform.TestFramework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\(Vendor)\NuGet\MSTest.TestFramework.2.1.1\lib\net45\Microsoft.VisualStudio.TestPlatform.TestFramework.dll</HintPath>
