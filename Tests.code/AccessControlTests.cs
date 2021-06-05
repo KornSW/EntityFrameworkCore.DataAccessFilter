@@ -10,26 +10,76 @@ namespace System.Data.AccessControl {
   [TestClass]
   public class AccessControlTests {
 
-    //[TestMethod]
-    //public void GetNavigationsShouldReturnOneProperty() {
+    [TestMethod]
+    public void FilteringExtensionMethodShouldWork() {
 
-    //  Type t = typeof(MockEntity);
-    //  Dictionary<PropertyInfo, Type> result = t.GetNavigations(true, true, true, true);
+      var rootEntities = new List<MockRootEntity>();
+      var subEntities = new List<MockSubEntity>();
+      var root1 = new MockRootEntity { RootName = "Root1" ,Scope = "A"};
+      var root2 = new MockRootEntity { RootName = "Root2", Scope = "B" };
+      var root3 = new MockRootEntity { RootName = "Root3", Scope = "A" };
+      var child1 = new MockSubEntity { SubName = "Child1" };
+      var child2 = new MockSubEntity { SubName = "Child2" };
+      var child3 = new MockSubEntity { SubName = "Child3" };
+      rootEntities.Add(root1);
+      rootEntities.Add(root2);
+      rootEntities.Add(root3);
+      subEntities.Add(child1);
+      subEntities.Add(child2);
+      subEntities.Add(child3);
+      root1.Childs.Add(child1);
+      root2.Childs.Add(child2);
+      root3.Childs.Add(child3);
+      child1.Parent = root1;
+      child2.Parent = root2;
+      child3.Parent = root3;
 
-    //  Assert.AreEqual(1, result.Count);
-    //  Assert.AreEqual(nameof(MockEntity.Parent), result.Keys.First().Name);
+      EntityAccessControl.RegisterPropertyAsAccessControlClassification(
+        (MockRootEntity e) => e.Scope, "AccessControlDimension1"
+      );
 
-    //}
+      MockRootEntity[] filteredRootResult;
+      MockSubEntity[] filteredResult;
+
+      filteredResult = subEntities.AsQueryable().AccessScopeFiltered().ToArray();
+      Assert.AreEqual(0, filteredResult.Length);
+
+      filteredRootResult = rootEntities.AsQueryable().AccessScopeFiltered().ToArray();
+      Assert.AreEqual(0, filteredRootResult.Length);
+
+      AccessControlContext.Current.AddClearance("AccessControlDimension1", "A");
+      filteredResult = subEntities.AsQueryable().AccessScopeFiltered().ToArray();
+      Assert.AreEqual(2, filteredResult.Length);
+
+      filteredRootResult = rootEntities.AsQueryable().AccessScopeFiltered().ToArray();
+      Assert.AreEqual(2, filteredRootResult.Length);
+
+      AccessControlContext.Current.AddClearance("AccessControlDimension1", "B");
+      filteredResult = subEntities.AsQueryable().AccessScopeFiltered().ToArray();
+      Assert.AreEqual(3, filteredResult.Length);
+
+      filteredRootResult = rootEntities.AsQueryable().AccessScopeFiltered().ToArray();
+      Assert.AreEqual(3, filteredRootResult.Length);
+
+    }
+
+  }
+  internal class MockRootEntity {
+
+    [Dependent]
+    public List<MockSubEntity> Childs { get; set; } = new List<MockSubEntity>();
+    public String RootName { get; set; } = null;
+    public String Scope { get; set; } = null;
 
   }
 
-  //internal class MockEntity {
+  internal class MockSubEntity {
 
-  //  [Principal]
-  //  public MockEntity Parent { get; set; } = null;
+    [Principal]
+    public MockRootEntity Parent { get; set; } = null;
 
-  //  public MockEntity Other { get; set; } = null;
+    public String SubName { get; set; } = null;
 
-  //}
+  }
 
 }

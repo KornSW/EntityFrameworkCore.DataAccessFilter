@@ -61,8 +61,15 @@ namespace System.Data.AccessControl {
     private Expression _LocalFilterExpression = null;
     private DateTime _ClearanceVersionWithinFilterExpression = DateTime.MinValue;
     private IClearanceSource _LastClearanceSource;
+    private Expression _LastEntitySourceExpression = null;
+    
+    private bool CheckLocalReBuildRequired(IClearanceSource clearanceSource, Expression entitySourceExpression) {
 
-    private bool CheckLocalReBuildRequired(IClearanceSource clearanceSource) {
+      if(_LastEntitySourceExpression == null || _LastEntitySourceExpression != entitySourceExpression) {
+        _LocalFilterExpression = null;
+        _LastEntitySourceExpression = entitySourceExpression;
+      }
+
       if(!ReferenceEquals (_LastClearanceSource, clearanceSource)) {
         _LocalFilterExpression = null;
         _LastClearanceSource = clearanceSource;
@@ -74,7 +81,7 @@ namespace System.Data.AccessControl {
       }
       if(_LocalFilterExpression != null) {
         foreach (Type relatedType in _UpNavigations.Values) {
-          if (EntityAccessControl.GetBuilderForEntity(relatedType).CheckLocalReBuildRequired(clearanceSource)) {
+          if (EntityAccessControl.GetBuilderForEntity(relatedType).CheckLocalReBuildRequired(clearanceSource, entitySourceExpression)) {
             _LocalFilterExpression = null;
             return true;
           }  
@@ -96,7 +103,7 @@ namespace System.Data.AccessControl {
           //in this case a member-expression which navigates from ou child up to us is passed via this arg...
         }
 
-        if(!this.CheckLocalReBuildRequired(clearanceSource)) {
+        if(!this.CheckLocalReBuildRequired(clearanceSource, entitySourceExpression)) {
           return _LocalFilterExpression;
         }
 

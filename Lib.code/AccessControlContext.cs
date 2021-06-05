@@ -155,12 +155,14 @@ namespace System.Data.AccessControl {
           lst = _ClearancesPerDimension[dimensionName];
           if (!lst.Contains(targetClassificationValue)) {
             lst.Add(targetClassificationValue);
+            _LastClearanceChangeDateUtc = DateTime.UtcNow;
           }
         }
         else {
           lst = new List<String>();
           lst.Add(targetClassificationValue);
           _ClearancesPerDimension.Add(dimensionName, lst);
+          _LastClearanceChangeDateUtc = DateTime.UtcNow;
         }
       }
     }
