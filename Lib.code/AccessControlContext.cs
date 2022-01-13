@@ -113,8 +113,8 @@ namespace System.Data.AccessControl {
 
     #endregion
 
-    public void SetAccessorNaame(string newAccessorNaame) {
-      _AccessorName = newAccessorNaame;
+    public void SetAccessorName(string newAccessorName) {
+      _AccessorName = newAccessorName;
     }
 
     private String _AccessorName = null;
@@ -124,6 +124,25 @@ namespace System.Data.AccessControl {
           return _Parent.AccessorName;
         }
         return _AccessorName;
+      }
+    }
+
+    public void SetAuthStateCode(int newSetAuthStateCode) {
+      _AuthStateCode = newSetAuthStateCode;
+    }
+
+    private int? _AuthStateCode = 0;
+    public int AuthStateCode {
+      get {
+        if (!_AuthStateCode.HasValue) {
+          if (_Parent != null) {
+            return _Parent.AuthStateCode;
+          }
+          else {
+            return 0;
+          }
+        }
+        return _AuthStateCode.Value;
       }
     }
 
@@ -139,13 +158,35 @@ namespace System.Data.AccessControl {
 
     Dictionary<String, List<String>> _ClearancesPerDimension = new Dictionary<String, List<String>>();
 
-    string[] IClearanceSource.GetClearancesOfDimension(string dimensionName) {
+    public string[] GetDimensionNames() {
+      lock (_ClearancesPerDimension) {
+        return _ClearancesPerDimension.Keys.ToArray();
+      }
+    }
+
+    public string[] GetClearancesOfDimension(string dimensionName) {
       lock (_ClearancesPerDimension) {
         if (!_ClearancesPerDimension.ContainsKey(dimensionName)) {
           return new string[] { };
         }
         return _ClearancesPerDimension[dimensionName].ToArray();
       }
+    }
+
+    /// <summary>
+    /// return an array like ["Dimension1:Foo", "Dimension1:Bar", "Dimension2:Baz" ]
+    /// </summary>
+    /// <returns></returns>
+    public string[] ExportClearences() {
+      var result = new List<String>();
+      lock (_ClearancesPerDimension) {
+        foreach (string dimension in _ClearancesPerDimension.Keys) {
+          foreach (string value in _ClearancesPerDimension[dimension]) {
+            result.Add(dimension + ":" + value);
+          }
+        }
+      }
+      return result.ToArray();
     }
 
     public void AddClearance(string dimensionName, string targetClassificationValue) {
@@ -292,15 +333,16 @@ namespace System.Data.AccessControl {
           }
         }
       }
-      lock (_GrandedPermissions) {
-        foreach (string dp in _DeniedPermissions) {
-          if (Regex.IsMatch(permission, dp)){
-            result = false;
-            break;
+      if (result) {
+        lock (_GrandedPermissions) {
+          foreach (string dp in _DeniedPermissions) {
+            if (Regex.IsMatch(permission, dp)) {
+              result = false;
+              break;
+            }
           }
         }
       }
-
       return result;
     }
 
