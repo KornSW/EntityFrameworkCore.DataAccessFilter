@@ -18,9 +18,9 @@ namespace System.Data.AccessControl {
 
   }
 
-  public interface IClearanceSource {
-    DateTime LastClearanceChangeDateUtc { get; }
-    String[] GetClearancesOfDimension(string dimensionName);
-  }
+  //public interface IClearanceSource {
+  //  DateTime LastClearanceChangeDateUtc { get; }
+  //  String[] GetClearancesOfDimension(string dimensionName);
+  //}
 
 }
