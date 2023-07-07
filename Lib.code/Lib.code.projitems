@@ -9,9 +9,9 @@
     <Import_RootNamespace>Lib</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)AccessControlContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AccessControlExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Attributes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EntityAccessControl.Setup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EntityAccessControl.cs" />
   </ItemGroup>
 </Project>

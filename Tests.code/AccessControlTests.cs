@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Reflection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Security;
 
 namespace System.Data.AccessControl {
 
@@ -35,6 +32,16 @@ namespace System.Data.AccessControl {
       child2.Parent = root2;
       child3.Parent = root3;
 
+      var dimension1Clearances = new List<string>();
+      EntityAccessControl.ClearanceGetter = (
+        (string dimensionName) => {
+          if (dimensionName == "AccessControlDimension1") {
+            return dimension1Clearances.ToArray();
+          }
+          return new string[] { };
+        }
+      );
+
       EntityAccessControl.RegisterPropertyAsAccessControlClassification(
         (MockRootEntity e) => e.Scope, "AccessControlDimension1"
       );
@@ -48,14 +55,14 @@ namespace System.Data.AccessControl {
       filteredRootResult = rootEntities.AsQueryable().AccessScopeFiltered().ToArray();
       Assert.AreEqual(0, filteredRootResult.Length);
 
-      AccessControlContext.Current.AddClearance("AccessControlDimension1", "A");
+      dimension1Clearances.Add( "A");
       filteredResult = subEntities.AsQueryable().AccessScopeFiltered().ToArray();
       Assert.AreEqual(2, filteredResult.Length);
 
       filteredRootResult = rootEntities.AsQueryable().AccessScopeFiltered().ToArray();
       Assert.AreEqual(2, filteredRootResult.Length);
 
-      AccessControlContext.Current.AddClearance("AccessControlDimension1", "B");
+      dimension1Clearances.Add("B");
       filteredResult = subEntities.AsQueryable().AccessScopeFiltered().ToArray();
       Assert.AreEqual(3, filteredResult.Length);
 

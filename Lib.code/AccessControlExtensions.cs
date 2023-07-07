@@ -7,15 +7,13 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
-using Security;
-//using Microsoft.EntityFrameworkCore;
 
 namespace System.Data.AccessControl {
 
   public static class AccessControlExtensions {
 
     public static IQueryable<TEntity> AccessScopeFiltered<TEntity>(this IQueryable<TEntity> extendee) {
-      var filterExpression = EntityAccessControl.BuildExpressionIncludingPrincipals<TEntity>(AccessControlContext.Current);
+      var filterExpression = EntityAccessControl.BuildExpressionIncludingPrincipals<TEntity>(EntityAccessControl.ClearanceGetter);
       return extendee.Where(filterExpression);
     }
 

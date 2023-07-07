@@ -39,9 +39,6 @@
     <Reference Include="FUSE-fx.EntityAnnotations, Version=999.0.0.20724, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\(Vendor)\NuGet\FUSE-fx.EntityAnnotations.3.0.0\lib\net46\FUSE-fx.EntityAnnotations.dll</HintPath>
     </Reference>
-    <Reference Include="KornSW.AccessControl, Version=1.0.0.547, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\(Vendor)\NuGet\KornSW.AccessControl.1.0.0.547\lib\net46\KornSW.AccessControl.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
