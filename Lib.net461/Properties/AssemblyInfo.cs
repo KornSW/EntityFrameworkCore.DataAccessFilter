@@ -15,6 +15,6 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 [assembly: Guid("46adc8b8-2f14-4c31-87ca-95b71ee09ef9")]
 
-[assembly: AssemblyVersion("2.0.0.*")]
-[assembly: AssemblyInformationalVersion("2.0.0-localbuild")]
+[assembly: AssemblyVersion("2.0.1")]
+[assembly: AssemblyInformationalVersion("2.0.1-localbuild")]
 //DONT ADD: [assembly: AssemblyFileVersion] !!!

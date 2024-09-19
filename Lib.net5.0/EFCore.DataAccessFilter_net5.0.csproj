@@ -13,10 +13,10 @@
     <Product>KornSW.EntityFrameworkCore.DataAccessFilter</Product>
     <Company>KornSW</Company>
     <Copyright>KornSW</Copyright>
-    <Version>2.0.0</Version>
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <Version>2.0.1</Version>
+    <AssemblyVersion>2.0.1</AssemblyVersion>
     <Authors>KornSW</Authors>
-    <FileVersion>2.0.0.0</FileVersion>
+    <FileVersion>2.0.1</FileVersion>
     <PackageTags>EntityFramework Mandatory Access Control MAC</PackageTags>
   </PropertyGroup>
   
@@ -39,7 +39,7 @@
   <Import Project="..\Lib.code\Lib.code.projitems" Label="Shared" />
 
   <ItemGroup>
-    <PackageReference Include="FUSE-fx.EntityAnnotations" Version="3.0.0" />
+    <PackageReference Include="FUSE-fx.EntityAnnotations" Version="4.0.3" />
   </ItemGroup>
 
 </Project>

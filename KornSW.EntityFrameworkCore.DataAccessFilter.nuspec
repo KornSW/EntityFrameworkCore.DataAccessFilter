@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>KornSW.EntityFrameworkCore.DataAccessFilter</id>
-    <version>2.0.0-localbuild</version>
+    <version>2.0.1-localbuild</version>
     <title>KornSW.EntityFrameworkCore.DataAccessFilter</title>
     <authors>KornSW</authors>
     <owners>KornSW</owners>
@@ -16,13 +16,13 @@
     <projectUrl>https://github.com/KornSW/EntityFrameworkCore.DataAccessFilter</projectUrl>
     <dependencies>
       <group targetFramework=".NETFramework4.6">
-        <dependency id="FUSE-fx.EntityAnnotations" version="[3.0.0,3.9999]" />
+        <dependency id="FUSE-fx.EntityAnnotations" version="4.0.3" />
       </group>
       <group targetFramework="net5.0">
-        <dependency id="FUSE-fx.EntityAnnotations" version="[3.0.0,3.9999]" />
+        <dependency id="FUSE-fx.EntityAnnotations" version="4.0.3" />
       </group>
       <group targetFramework="net6.0">
-        <dependency id="FUSE-fx.EntityAnnotations" version="[3.0.0,3.9999]" />
+        <dependency id="FUSE-fx.EntityAnnotations" version="4.0.3" />
       </group>      
     </dependencies>
   </metadata>
