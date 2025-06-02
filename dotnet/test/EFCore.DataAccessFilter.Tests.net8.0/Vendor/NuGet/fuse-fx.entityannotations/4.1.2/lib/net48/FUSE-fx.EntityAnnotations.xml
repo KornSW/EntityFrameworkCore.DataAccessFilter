@@ -1,0 +1,569 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FUSE-fx.EntityAnnotations</name>
+    </assembly>
+    <members>
+        <member name="T:System.ComponentModel.DataAnnotations.ContentAttribute">
+            <summary>
+             Defines, that a Property contains Business-Content
+             (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.ContentAttribute.#ctor(System.String)">
+            <summary>
+             Defines, that a Property contains Business-Content
+            </summary>
+            <param name="specializedConcern">
+              Indicates, if a field belongs to a more specific business domain.
+              This can be used to control the detail-grade (displayed fields) in the UI
+              or when exporting data in an abstract way.
+            </param>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.ContentAttribute.SpecializedConcern">
+            <summary>
+              Indicates, if a field belongs to a more specific business domain.
+              This can be used to control the detail-grade (displayed fields) in the UI
+              or when exporting data in an abstract way.
+            </summary>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.IdentityLabelAttribute">
+            <summary>
+             Defines, that a Property contains content, which represents a human readable natural
+             key, that should be preferred when refering to the current record (UI/Logging/Tracing).
+             This is a non-technical information, which relates to the domain model (business-level)!
+             (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.IdentityLabelAttribute.#ctor">
+            <summary>
+             Defines, that a Property contains content, which represents a human readable natural
+             key, that should be preferred when refering to the current record (UI/Logging/Tracing).
+             This is a non-technical information, which relates to the domain model (business-level)!
+            </summary>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.FilterableAttribute">
+            <summary>
+             Defines whether a field contains content that is commonly used for filtering.
+             This is a non-technical information, which relates to the domain model (business-level)!
+             (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.FilterableAttribute.#ctor(System.ComponentModel.DataAnnotations.Filterability)">
+            <summary>
+             Defines whether a field contains content that is commonly used for filtering.
+             This is a non-technical information, which relates to the domain model (business-level)!
+            </summary>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.Filterability">
+            <summary>
+             Defines whether a field contains content that is commonly used for filtering.
+             This is a non-technical information, which relates to the domain model (business-level)!
+             (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.IdentityProtectedAttribute">
+            <summary>
+             Defines whether a field contains content that is sematically owned by the current entity,
+             so that it wont make sense to offer usecases like batch/mass-updates for it.
+             Also when creating a clone (using this entity as template) the content of this field 
+             should not be included by default.
+             (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.IdentityProtectedAttribute.#ctor(System.Boolean)">
+            <summary>
+             Defines whether a field contains content that is sematically owned by the current entity,
+             so that it wont make sense to offer usecases like batch/mass-updates for it.
+             Also when creating a clone (using this entity as template) the content of this field 
+             should not be included by default.
+            </summary>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.DependentAttribute">
+            <summary>
+            qualifies a Navigation-Property
+            (this should be used in combination with the HasDependentAttribute on the current entity-type which declares the details of the association) 
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.DependentAttribute.#ctor">
+            <summary>
+            qualifies a Navigation-Property
+            (this should be used in combination with the HasDependentAttribute on the current entity-type which declares the details of the association) 
+            </summary>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.HasDependentAttribute">
+            <summary>
+            Defines, that this entity has an INBOUND dependency by a associated entity for which the current entity is the PRINCIPAL.
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.HasDependentAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Defines, that this entity has an INBOUND dependency by a associated entity for which the current entity is the PRINCIPAL.
+            In addition to that, this specific overload will also define details for reversed view from for the remote entity -> this should only be done, if it is not possible to specify attributes on the remote entity (preferred way)
+            </summary>
+            <param name="localNavigationName">can be just defined here, or in combination with an identically named navigation-property qualified by a DependentAttribute </param>
+            <param name="localKeyPropertyGroupName">name of a PropertyGroup defined on the local entity, which will be used as 'Primary-Key' (if not sepecified, then the PrimaryIdentityAttribute will used to identify the primary PropertyGroup name)</param>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.HasDependentAttribute.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Defines, that this entity has an INBOUND dependency by a associated entity for which the current entity is the PRINCIPAL.
+            In addition to that, this specific overload will also define details for reversed view from for the remote entity -> this should only be done, if it is not possible to specify attributes on the remote entity (preferred way)
+            </summary>
+            <param name="localNavigationName">can be just defined here, or in combination with an identically named navigation-property qualified by a DependentAttribute </param>
+            <param name="fkPropertyGroupNameOnDependent">name of a PropertyGroup defined on the Dependent entity which will be used as 'Foreigen-Key'</param>
+            <param name="navigationNameOnDependent">should be defined to qualify each direction of the association (also, if there is no navigation-property)</param>
+            <param name="localKeyPropertyGroupName">name of a PropertyGroup defined on the local entity, which will be used as 'Primary-Key' (if not sepecified, then the PrimaryIdentityAttribute will used to identify the primary PropertyGroup name)</param>
+            <param name="dependentTypeName"></param>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.HasDependentAttribute.#ctor(System.String,System.String[],System.String,System.String)">
+            <summary>
+            Defines, that this entity has an INBOUND dependency by a associated entity for which the current entity is the PRINCIPAL.
+            In addition to that, this specific overload will also define details for reversed view from for the remote entity -> this should only be done, if it is not possible to specify attributes on the remote entity (preferred way)
+            </summary>
+            <param name="localNavigationName">can be just defined here, or in combination with an identically named navigation-property qualified by a DependentAttribute </param>
+            <param name="fkPropertyNamesOnDependent">One ore more Property names on the Dependent entity which will be used as 'Foreigen-Key'</param>
+            <param name="navigationNameOnDependent">should be defined to qualify each direction of the association (also, if there is no navigation-property)</param>
+            <param name="localKeyPropertyGroupName">name of a PropertyGroup defined on the local entity, which will be used as 'Primary-Key' (if not sepecified, then the PrimaryIdentityAttribute will used to identify the primary PropertyGroup name)</param>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasDependentAttribute.LocalNavigationName">
+            <summary>
+            can be just defined here, or in combination with an identically named navigation-property qualified by a DependentAttribute
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasDependentAttribute.DependentTypeName">
+            <summary>
+            name of the type of the dependent
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasDependentAttribute.FkPropertyGroupNameOnDependent">
+            <summary>
+            name of a PropertyGroup defined on the Dependent entity which will be used as 'Foreigen-Key'
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasDependentAttribute.FkPropertyNamesOnDependent">
+            <summary>
+            One ore more Property names on the Dependent entity which will be used as 'Foreigen-Key'
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasDependentAttribute.NavigationNameOnDependent">
+            <summary>
+            should be defined to qualify each direction of the association (also, if there is no navigation-property)
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasDependentAttribute.LocalKeyPropertyGroupName">
+            <summary>
+            name of a PropertyGroup defined on the local entity, which will be used as 'Primary-Key' (if not sepecified, then the PrimaryIdentityAttribute will used to identify the primary PropertyGroup name)
+            </summary>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.FixedAfterCreationAttribute">
+            <summary>
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.SetableAttribute">
+            <summary>
+            Defines, in which cases a field is ment to be set.
+            This is a non-technical information, which relates
+            to the domain model (business-level)!
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.Setability">
+            <summary>
+            Defines, in which cases a field is ment to be set.
+            This is a non-technical information, which relates
+            to the domain model (business-level)!
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="F:System.ComponentModel.DataAnnotations.Setability.Never">
+            <summary> this field should only be set by wellknown technical automatisms </summary>
+        </member>
+        <member name="F:System.ComponentModel.DataAnnotations.Setability.OnCreation">
+            <summary> this field should be setable when a record is created newly (or on full-import/recovery) </summary>
+        </member>
+        <member name="F:System.ComponentModel.DataAnnotations.Setability.OnSingleUpdate">
+            <summary> this field should be setable during the usecase of an individual edit</summary>
+        </member>
+        <member name="F:System.ComponentModel.DataAnnotations.Setability.OnBatchUpdate">
+            <summary> this field should be setable during a batch-update for multiple records</summary>
+        </member>
+        <member name="F:System.ComponentModel.DataAnnotations.Setability.AfterCreation">
+            <summary> represents the logical combination of 'OnSingleUpdate' + 'OnBatchUpdate' </summary>
+        </member>
+        <member name="F:System.ComponentModel.DataAnnotations.Setability.Always">
+            <summary> represents the logical combination of 'OnCreation' + 'AfterCreation' </summary>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.LookupAttribute">
+            <summary>
+            qualifies a Navigation-Property
+            (this should be used in combination with the HasLookupAttribute on the current entity-type which declares the details of the association) 
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.LookupAttribute.#ctor">
+            <summary>
+            qualifies a Navigation-Property
+            (this should be used in combination with the HasLookupAttribute on the current entity-type which declares the details of the association) 
+            </summary>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.HasLookupAttribute">
+            <summary>
+            Defines, that this entity has an OUTBOUND relationship to another entity which represents a LOOKUP.
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.HasLookupAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Defines, that this entity has an OUTBOUND relationship to another entity which represents a LOOKUP.
+            </summary>
+            <param name="localNavigationName">can be just defined here, or in combination with an identically named navigation-property qualified by a LookupAttribute </param>
+            <param name="localFkPropertyGroupName">name of a local defined PropertyGroup which will be used as 'Foreigen-Key'</param>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.HasLookupAttribute.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Defines, that this entity has an OUTBOUND relationship to another entity which represents a LOOKUP.
+            In addition to that, this specific overload will also define details for reversed view from for the remote entity -> this should only be done, if it is not possible to specify attributes on the remote entity (preferred way)
+            </summary>
+            <param name="localNavigationName">can be just defined here, or in combination with an identically named navigation-property qualified by a LookupAttribute </param>
+            <param name="localFkPropertyGroupName">name of a local defined PropertyGroup which will be used as 'Foreigen-Key'</param>
+            <param name="navigationNameOnLookup">should be defined to qualify each direction of the association (also, if there is no navigation-property)</param>
+            <param name="keyPropertyGroupNameOnLookup">name of a PropertyGroup defined on the target entity, which will be used as 'Primary-Key' (if not sepecified, then the PrimaryIdentityAttribute will used to identify the primary PropertyGroup name)</param>
+            <param name="lookupTypeName">typename of Lookup Entity</param>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.HasLookupAttribute.#ctor(System.String,System.String,System.String,System.String[])">
+            <summary>
+            Defines, that this entity has an OUTBOUND relationship to another entity which represents a LOOKUP.
+            In addition to that, this specific overload will also define details for reversed view from for the remote entity -> this should only be done, if it is not possible to specify attributes on the remote entity (preferred way)
+            </summary>
+            <param name="localNavigationName">can be just defined here, or in combination with an identically named navigation-property qualified by a LookupAttribute </param>
+            <param name="localFkPropertyGroupName">name of a local defined PropertyGroup which will be used as 'Foreigen-Key'</param>
+            <param name="navigationNameOnLookup">should be defined to qualify each direction of the association (also, if there is no navigation-property)</param>
+            <param name="keyPropertyNamesOnLookup">name of a PropertyGroup defined on the target entity, which will be used as 'Primary-Key' (if not sepecified, then the PrimaryIdentityAttribute will used to identify the primary PropertyGroup name)</param>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasLookupAttribute.LocalNavigationName">
+            <summary>
+            can be just defined here, or in combination with an identically named navigation-property qualified by a LookupAttribute
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasLookupAttribute.LocalFkPropertyGroupName">
+            <summary>
+            name of a local defined PropertyGroup which will be used as 'Foreigen-Key'
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasLookupAttribute.NavigationNameOnLookup">
+            <summary>
+            should be defined to qualify each direction of the association (also, if there is no navigation-property)
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasLookupAttribute.LookupTypeName">
+            <summary>
+            name of the type of the Lookup
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasLookupAttribute.KeyPropertyGroupNameOnLookup">
+            <summary>
+            name of a PropertyGroup defined on the target entity, which will be used as 'Primary-Key' (if not sepecified, then the PrimaryIdentityAttribute will used to identify the primary PropertyGroup name)
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasLookupAttribute.KeyPropertyNamesOnLookup">
+            <summary>
+            name of a PropertyGroup defined on the target entity, which will be used as 'Primary-Key' (if not sepecified, then the PrimaryIdentityAttribute will used to identify the primary PropertyGroup name)
+            </summary>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.ModelRelationExtensions.GetNavigations(System.Type,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+            <param name="extendee"></param>
+            <param name="includePrincipals"></param>
+            <param name="includeLookups"></param>
+            <param name="includeDependents"></param>
+            <param name="includeReferrers"></param>
+            <returns></returns>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.PluralNameAttribute">
+            <summary>
+            Defines, that this entity has an OUTBOUND dependency to another entity which represents the PRINCIPAL.
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.PrimaryIdentityAttribute">
+            <summary>
+            Defines, which PropertyGroup will be treated as Primary Identity (=PK) for the current entity
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.PrimaryIdentityAttribute.#ctor(System.String)">
+            <summary>
+            Defines, which PropertyGroup will be treated as Primary Identity (=PK) for the current entity
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+            <param name="propertyGroupName">The name of a UniquePropertyGroup which is defined on the current class (using the UniquePropertyGroupAttribute)!</param>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.PrimaryIdentityAttribute.PropertyGroupName">
+            <summary>
+            The name of a UniquePropertyGroup which is defined on the current class (using the UniquePropertyGroupAttribute)!
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.PrincipalAttribute">
+            <summary>
+            qualifies a Navigation-Property
+            (this should be used in combination with the HasPrincipalAttribute on the current entity-type which declares the details of the association) 
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.PrincipalAttribute.#ctor">
+            <summary>
+            qualifies a Navigation-Property
+            (this should be used in combination with the HasPrincipalAttribute on the current entity-type which declares the details of the association) 
+            </summary>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.HasPrincipalAttribute">
+            <summary>
+            Defines, that this entity has an OUTBOUND dependency to another entity which represents the PRINCIPAL.
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.HasPrincipalAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Defines, that this entity has an OUTBOUND dependency to another entity which represents the PRINCIPAL.
+            </summary>
+            <param name="localNavigationName">can be just defined here, or in combination with an identically named navigation-property qualified by a PrincipalAttribute </param>
+            <param name="localFkPropertyGroupName">name of a local defined PropertyGroup which will be used as 'Foreigen-Key'</param>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.HasPrincipalAttribute.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Defines, that this entity has an OUTBOUND dependency to another entity which represents the PRINCIPAL.
+            In addition to that, this specific overload will also define details for reversed view from for the remote entity -> this should only be done, if it is not possible to specify attributes on the remote entity (preferred way)
+            </summary>
+            <param name="localNavigationName">can be just defined here, or in combination with an identically named navigation-property qualified by a PrincipalAttribute </param>
+            <param name="localFkPropertyGroupName">name of a local defined PropertyGroup which will be used as 'Foreigen-Key'</param>
+            <param name="navigationNameOnPrincipal">should be defined to qualify each direction of the association (also, if there is no navigation-property)</param>
+            <param name="principalTypeName"></param>
+            <param name="keyPropertyGroupNameOnPrincipal">name of a PropertyGroup defined on the target entity, which will be used as 'Primary-Key' (if not sepecified, then the PrimaryIdentityAttribute will used to identify the primary PropertyGroup name)</param>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.HasPrincipalAttribute.#ctor(System.String,System.String,System.String,System.String[])">
+            <summary>
+            Defines, that this entity has an OUTBOUND dependency to another entity which represents the PRINCIPAL.
+            In addition to that, this specific overload will also define details for reversed view from for the remote entity -> this should only be done, if it is not possible to specify attributes on the remote entity (preferred way)
+            </summary>
+            <param name="localNavigationName">can be just defined here, or in combination with an identically named navigation-property qualified by a PrincipalAttribute </param>
+            <param name="localFkPropertyGroupName">name of a local defined PropertyGroup which will be used as 'Foreigen-Key'</param>
+            <param name="navigationNameOnPrincipal">should be defined to qualify each direction of the association (also, if there is no navigation-property)</param>
+            <param name="keyPropertyNamesOnPrincipal">name of a PropertyGroup defined on the target entity, which will be used as 'Primary-Key' (if not sepecified, then the PrimaryIdentityAttribute will used to identify the primary PropertyGroup name)</param>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasPrincipalAttribute.LocalNavigationName">
+            <summary>
+            can be just defined here, or in combination with an identically named navigation-property qualified by a PrincipalAttribute
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasPrincipalAttribute.LocalFkPropertyGroupName">
+            <summary>
+            name of a local defined PropertyGroup which will be used as 'Foreigen-Key'
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasPrincipalAttribute.NavigationNameOnPrincipal">
+            <summary>
+            should be defined to qualify each direction of the association (also, if there is no navigation-property)
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasPrincipalAttribute.PrincipalTypeName">
+            <summary>
+            name of the type of the principal
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasPrincipalAttribute.KeyPropertyGroupNameOnPrincipal">
+            <summary>
+            name of a PropertyGroup defined on the target entity, which will be used as 'Primary-Key' (if not sepecified, then the PrimaryIdentityAttribute will used to identify the primary PropertyGroup name)
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasPrincipalAttribute.KeyPropertyNamesOnPrincipal">
+            <summary>
+            name of a PropertyGroup defined on the target entity, which will be used as 'Primary-Key' (if not sepecified, then the PrimaryIdentityAttribute will used to identify the primary PropertyGroup name)
+            </summary>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.PropertyGroupAttribute">
+            <summary>
+            Defines a PropertyGroup on the current entity which contains a combination of values
+            in order to be used for creating an index and/or addressing foreign entities (use as FK)
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.PropertyGroupAttribute.#ctor(System.String,System.String,System.String[])">
+            <summary>
+            Defines a PropertyGroup on the current entity which contains a combination of values
+            in order to be used for creating an index and/or addressing foreign entities (use as FK)
+            </summary>
+            <param name="groupName"></param>
+            <param name="propertyName1"></param>
+            <param name="additionalPropertyNames"></param>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.UniquePropertyGroupAttribute">
+            <summary>
+            Defines a PropertyGroup on the current entity which contains a unique combination of values
+            in order to be used for creating an index and/or addressing the current entity
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.UniquePropertyGroupAttribute.#ctor(System.String,System.String,System.String[])">
+            <summary>
+            Defines a PropertyGroup on the current entity which contains a unique combination of values
+            in order to be used for creating an index and/or addressing the current entity
+            </summary>
+            <param name="groupName"></param>
+            <param name="propertyName1"></param>
+            <param name="additionalPropertyNames"></param>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.ReferrerAttribute">
+            <summary>
+            qualifies a Navigation-Property
+            (this should be used in combination with the HasReferrerAttribute on the current entity-type which declares the details of the association) 
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.ReferrerAttribute.#ctor">
+            <summary>
+            qualifies a Navigation-Property
+            (this should be used in combination with the HasReferrerAttribute on the current entity-type which declares the details of the association) 
+            </summary>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.HasReferrerAttribute">
+            <summary>
+            Defines, that this entity has an INBOUND relationship by a associated entity for which the current entity is a LOOKUP.
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.HasReferrerAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Defines, that this entity has an INBOUND relationship by a associated entity for which the current entity is a LOOKUP.
+            </summary>
+            <param name="localNavigationName">can be just defined here, or in combination with an identically named navigation-property qualified by a ReferrerAttribute </param>
+            <param name="localKeyPropertyGroupName">name of a PropertyGroup defined on the local entity, which will be used as 'Primary-Key' (if not sepecified, then the PrimaryIdentityAttribute will used to identify the primary PropertyGroup name)</param>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.HasReferrerAttribute.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Defines, that this entity has an INBOUND relationship by a associated entity for which the current entity is a LOOKUP.
+            In addition to that, this specific overload will also define details for reversed view from for the remote entity -> this should only be done, if it is not possible to specify attributes on the remote entity (preferred way) 
+            </summary>
+            <param name="localNavigationName">can be just defined here, or in combination with an identically named navigation-property qualified by a ReferrerAttribute </param>
+            <param name="fkPropertyGroupOnReferrer">name of a PropertyGroup defined on the Referring entity which will be used as 'Foreigen-Key'</param>
+            <param name="navigationNameOnReferrer">should be defined to qualify each direction of the association (also, if there is no navigation-property)</param>
+            <param name="localKeyPropertyGroupName">name of a PropertyGroup defined on the local entity, which will be used as 'Primary-Key' (if not sepecified, then the PrimaryIdentityAttribute will used to identify the primary PropertyGroup name)</param>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.HasReferrerAttribute.#ctor(System.String,System.String[],System.String,System.String)">
+            <summary>
+            Defines, that this entity has an INBOUND relationship by a associated entity for which the current entity is a LOOKUP.
+            In addition to that, this specific overload will also define details for reversed view from for the remote entity -> this should only be done, if it is not possible to specify attributes on the remote entity (preferred way) 
+            </summary>
+            <param name="localNavigationName">can be just defined here, or in combination with an identically named navigation-property qualified by a ReferrerAttribute </param>
+            <param name="fkPropertyNamesOnReferrer">One ore more Property names on the Referring entity which will be used as 'Foreigen-Key'</param>
+            <param name="navigationNameOnReferrer">should be defined to qualify each direction of the association (also, if there is no navigation-property)</param>
+            <param name="localKeyPropertyGroupName">name of a PropertyGroup defined on the local entity, which will be used as 'Primary-Key' (if not sepecified, then the PrimaryIdentityAttribute will used to identify the primary PropertyGroup name)</param>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasReferrerAttribute.LocalNavigationName">
+            <summary>
+            can be just defined here, or in combination with an identically named navigation-property qualified by a ReferrerAttribute
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasReferrerAttribute.FkPropertyGroupOnReferrer">
+            <summary>
+            name of a PropertyGroup defined on the Referring entity which will be used as 'Foreigen-Key'
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasReferrerAttribute.FkPropertyNamesOnReferrer">
+            <summary>
+            One ore more Property names on the Referring entity which will be used as 'Foreigen-Key'
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasReferrerAttribute.NavigationNameOnReferrer">
+            <summary>
+            should be defined to qualify each direction of the association (also, if there is no navigation-property)
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasReferrerAttribute.LocalKeyPropertyGroupName">
+            <summary>
+            name of a PropertyGroup defined on the local entity, which will be used as 'Primary-Key' (if not sepecified, then the PrimaryIdentityAttribute will used to identify the primary PropertyGroup name)
+            </summary>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.RefererAttribute">
+            <summary>
+            qualifies a Navigation-Property
+            (this should be used in combination with the HasRefererAttribute on the current entity-type which declares the details of the association) 
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.RefererAttribute.#ctor">
+            <summary>
+            qualifies a Navigation-Property
+            (this should be used in combination with the HasRefererAttribute on the current entity-type which declares the details of the association) 
+            </summary>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.HasRefererAttribute">
+            <summary>
+            Defines, that this entity has an INBOUND relationship by a associated entity for which the current entity is a LOOKUP.
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.HasRefererAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Defines, that this entity has an INBOUND relationship by a associated entity for which the current entity is a LOOKUP.
+            </summary>
+            <param name="localNavigationName">can be just defined here, or in combination with an identically named navigation-property qualified by a RefererAttribute </param>
+            <param name="localKeyPropertyGroupName">name of a PropertyGroup defined on the local entity, which will be used as 'Primary-Key' (if not sepecified, then the PrimaryIdentityAttribute will used to identify the primary PropertyGroup name)</param>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.HasRefererAttribute.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Defines, that this entity has an INBOUND relationship by a associated entity for which the current entity is a LOOKUP.
+            In addition to that, this specific overload will also define details for reversed view from for the remote entity -> this should only be done, if it is not possible to specify attributes on the remote entity (preferred way) 
+            </summary>
+            <param name="localNavigationName">can be just defined here, or in combination with an identically named navigation-property qualified by a RefererAttribute </param>
+            <param name="fkPropertyGroupOnReferer">name of a PropertyGroup defined on the Referring entity which will be used as 'Foreigen-Key'</param>
+            <param name="navigationNameOnReferer">should be defined to qualify each direction of the association (also, if there is no navigation-property)</param>
+            <param name="localKeyPropertyGroupName">name of a PropertyGroup defined on the local entity, which will be used as 'Primary-Key' (if not sepecified, then the PrimaryIdentityAttribute will used to identify the primary PropertyGroup name)</param>
+        </member>
+        <member name="M:System.ComponentModel.DataAnnotations.HasRefererAttribute.#ctor(System.String,System.String[],System.String,System.String)">
+            <summary>
+            Defines, that this entity has an INBOUND relationship by a associated entity for which the current entity is a LOOKUP.
+            In addition to that, this specific overload will also define details for reversed view from for the remote entity -> this should only be done, if it is not possible to specify attributes on the remote entity (preferred way) 
+            </summary>
+            <param name="localNavigationName">can be just defined here, or in combination with an identically named navigation-property qualified by a RefererAttribute </param>
+            <param name="fkPropertyNamesOnReferer">One ore more Property names on the Referring entity which will be used as 'Foreigen-Key'</param>
+            <param name="navigationNameOnReferer">should be defined to qualify each direction of the association (also, if there is no navigation-property)</param>
+            <param name="localKeyPropertyGroupName">name of a PropertyGroup defined on the local entity, which will be used as 'Primary-Key' (if not sepecified, then the PrimaryIdentityAttribute will used to identify the primary PropertyGroup name)</param>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasRefererAttribute.LocalNavigationName">
+            <summary>
+            can be just defined here, or in combination with an identically named navigation-property qualified by a RefererAttribute
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasRefererAttribute.FkPropertyGroupOnReferer">
+            <summary>
+            name of a PropertyGroup defined on the Referring entity which will be used as 'Foreigen-Key'
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasRefererAttribute.FkPropertyNamesOnReferer">
+            <summary>
+            One ore more Property names on the Referring entity which will be used as 'Foreigen-Key'
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasRefererAttribute.NavigationNameOnReferer">
+            <summary>
+            should be defined to qualify each direction of the association (also, if there is no navigation-property)
+            </summary>
+        </member>
+        <member name="P:System.ComponentModel.DataAnnotations.HasRefererAttribute.LocalKeyPropertyGroupName">
+            <summary>
+            name of a PropertyGroup defined on the local entity, which will be used as 'Primary-Key' (if not sepecified, then the PrimaryIdentityAttribute will used to identify the primary PropertyGroup name)
+            </summary>
+        </member>
+        <member name="T:System.ComponentModel.DataAnnotations.SystemInternalAttribute">
+            <summary>
+            (from 'FUSE-fx.EntityAnnotations')
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>KornSW.EntityFrameworkCore.DataAccessFilter</id>
-    <version>2.0.1-localbuild</version>
+    <version>2.1.0</version>
     <title>KornSW.EntityFrameworkCore.DataAccessFilter</title>
     <authors>KornSW</authors>
     <owners>KornSW</owners>

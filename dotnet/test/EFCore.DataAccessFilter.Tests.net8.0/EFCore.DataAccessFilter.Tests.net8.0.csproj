@@ -4,8 +4,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <RootNamespace>System.Data.AccessControl</RootNamespace>
     <IsPackable>false</IsPackable>
-    <AssemblyVersion>0.0.0.0</AssemblyVersion>
-    <Version>0.0.0</Version>
+    <AssemblyVersion>2.1.0</AssemblyVersion>
+    <Version>2.1.0</Version>
     <AssemblyName>KornSW.EntityFrameworkCore.DataAccessFilter.Tests</AssemblyName>
     <PackageId>Tests</PackageId>
     <Product>Tests</Product>
