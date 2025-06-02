@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>System.Data.AccessControl</RootNamespace>
     <AssemblyName>KornSW.EntityFrameworkCore.DataAccessFilter</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>false</Deterministic>
     <TargetFrameworkProfile />
@@ -18,28 +18,29 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\%28Stage%29\Bin\net46\</OutputPath>
+    <OutputPath>..\..\dist\bin-net48\</OutputPath>
     <DefineConstants>TRACE;DEBUG;NET46</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\%28Stage%29\Bin\net46\KornSW.EntityFrameworkCore.DataAccessFilter.xml</DocumentationFile>
+    <DocumentationFile>..\..\dist\bin-net48\KornSW.EntityFrameworkCore.DataAccessFilter.xml</DocumentationFile>
     <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\%28Stage%29\Bin\net46\</OutputPath>
+    <OutputPath>..\..\dist\bin-net48\</OutputPath>
     <DefineConstants>TRACE;NET46</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\%28Stage%29\Bin\net46\KornSW.EntityFrameworkCore.DataAccessFilter.xml</DocumentationFile>
+    <DocumentationFile>..\..\dist\bin-net48\KornSW.EntityFrameworkCore.DataAccessFilter.xml</DocumentationFile>
     <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FUSE-fx.EntityAnnotations, Version=999.0.0.30033, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\(Vendor)\NuGet\FUSE-fx.EntityAnnotations.4.0.3\lib\net46\FUSE-fx.EntityAnnotations.dll</HintPath>
+    <Reference Include="FUSE-fx.EntityAnnotations, Version=999.0.0.25205, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\vendor\nuget\FUSE-fx.EntityAnnotations.4.1.2\lib\net48\FUSE-fx.EntityAnnotations.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -54,6 +55,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <Import Project="..\Lib.code\Lib.code.projitems" Label="Shared" />
+  <Import Project="..\EFCore.DataAccessFilter\EFCore.DataAccessFilter.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

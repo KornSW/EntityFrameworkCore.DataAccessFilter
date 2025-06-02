@@ -244,4 +244,5 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 
-/(Vendor)/NuGet/
+/dotnet/vendor/nuget
+/dotnet/dist
