@@ -246,3 +246,4 @@ ModelManifest.xml
 
 /dotnet/vendor/nuget
 /dotnet/dist
+**/vendor/nuget
