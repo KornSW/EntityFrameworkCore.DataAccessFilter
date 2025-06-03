@@ -13,10 +13,10 @@
     <Product>KornSW.EntityFrameworkCore.DataAccessFilter</Product>
     <Company>KornSW</Company>
     <Copyright>KornSW</Copyright>
-    <Version>2.1.0</Version>
-    <AssemblyVersion>2.1.0</AssemblyVersion>
+    <Version>2.1.1</Version>
+    <AssemblyVersion>2.1.1</AssemblyVersion>
     <Authors>KornSW</Authors>
-    <FileVersion>2.1.0</FileVersion>
+    <FileVersion>2.1.1</FileVersion>
     <PackageTags>EntityFramework Mandatory Access Control MAC</PackageTags>
   </PropertyGroup>
   
