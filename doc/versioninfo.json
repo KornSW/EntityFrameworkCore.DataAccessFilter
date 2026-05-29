@@ -1,13 +1,13 @@
 {
-  "currentVersion": "2.1.1",
-  "currentVersionWithSuffix": "2.1.1",
+  "currentVersion": "2.2.0",
+  "currentVersionWithSuffix": "2.2.0",
   "releaseType": "",
-  "previousVersion": "2.1.0",
-  "changeGrade": "fix",
+  "previousVersion": "2.1.1",
+  "changeGrade": "minor",
   "currentMajor": 2,
-  "currentMinor": 1,
-  "currentPatch": 1,
-  "versionDateInfo": "2025-06-03",
-  "versionTimeInfo": "05:43:35",
-  "versionNotes": "- new revision without significant changes\n"
+  "currentMinor": 2,
+  "currentPatch": 0,
+  "versionDateInfo": "2026-05-29",
+  "versionTimeInfo": "08:53:12",
+  "versionNotes": "- new Feature: Moved targets from .net 6/8 to 8/10\n"
 }
