@@ -36,8 +36,8 @@
     <NoWarn>1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FUSE-fx.EntityAnnotations, Version=999.0.0.25205, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\vendor\nuget\FUSE-fx.EntityAnnotations.4.1.2\lib\net48\FUSE-fx.EntityAnnotations.dll</HintPath>
+    <Reference Include="FUSE-fx.EntityAnnotations, Version=4.2.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\vendor\nuget\FUSE-fx.EntityAnnotations.4.2.2\lib\net48\FUSE-fx.EntityAnnotations.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />

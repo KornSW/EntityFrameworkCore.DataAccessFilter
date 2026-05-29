@@ -26,11 +26,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCore.DataAccessFilter.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCore.DataAccessFilter.Tests.net48", "test\EFCore.DataAccessFilter.Tests.net48\EFCore.DataAccessFilter.Tests.net48.csproj", "{D0B8734C-340F-4B2A-80EE-C00AFDD59E13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCore.DataAccessFilter.net6.0", "src\EFCore.DataAccessFilter.net6.0\EFCore.DataAccessFilter.net6.0.csproj", "{6B094C39-E11A-4AEF-9E1A-90EF1A8DF735}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCore.DataAccessFilter.net8.0", "src\EFCore.DataAccessFilter.net8.0\EFCore.DataAccessFilter.net8.0.csproj", "{09F59CF9-B450-4A07-A580-6DF0BDB4CAB7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCore.DataAccessFilter.net48", "src\EFCore.DataAccessFilter.net48\EFCore.DataAccessFilter.net48.csproj", "{46ADC8B8-2F14-4C31-87CA-95B71EE09EF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCore.DataAccessFilter.net10.0", "src\EFCore.DataAccessFilter.net10.0\EFCore.DataAccessFilter.net10.0.csproj", "{1EC3D446-773C-C24A-3B56-80D9ECB61232}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,10 +46,6 @@ Global
 		{D0B8734C-340F-4B2A-80EE-C00AFDD59E13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0B8734C-340F-4B2A-80EE-C00AFDD59E13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0B8734C-340F-4B2A-80EE-C00AFDD59E13}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6B094C39-E11A-4AEF-9E1A-90EF1A8DF735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6B094C39-E11A-4AEF-9E1A-90EF1A8DF735}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6B094C39-E11A-4AEF-9E1A-90EF1A8DF735}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6B094C39-E11A-4AEF-9E1A-90EF1A8DF735}.Release|Any CPU.Build.0 = Release|Any CPU
 		{09F59CF9-B450-4A07-A580-6DF0BDB4CAB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{09F59CF9-B450-4A07-A580-6DF0BDB4CAB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09F59CF9-B450-4A07-A580-6DF0BDB4CAB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -58,6 +54,10 @@ Global
 		{46ADC8B8-2F14-4C31-87CA-95B71EE09EF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46ADC8B8-2F14-4C31-87CA-95B71EE09EF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46ADC8B8-2F14-4C31-87CA-95B71EE09EF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EC3D446-773C-C24A-3B56-80D9ECB61232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EC3D446-773C-C24A-3B56-80D9ECB61232}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EC3D446-773C-C24A-3B56-80D9ECB61232}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EC3D446-773C-C24A-3B56-80D9ECB61232}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,19 +69,19 @@ Global
 		{5E17C8E8-0BC8-4F7C-A022-C8104A415628} = {E752DB06-00A0-4788-99F1-260E31FD33FC}
 		{5C056B4D-325D-4F48-88F9-92507EA1F84B} = {39B81C9C-8CF7-4EBE-8A64-27C00B76361D}
 		{D0B8734C-340F-4B2A-80EE-C00AFDD59E13} = {39B81C9C-8CF7-4EBE-8A64-27C00B76361D}
-		{6B094C39-E11A-4AEF-9E1A-90EF1A8DF735} = {3F76E0FB-D06B-47DE-B455-DDF3826527D5}
 		{09F59CF9-B450-4A07-A580-6DF0BDB4CAB7} = {3F76E0FB-D06B-47DE-B455-DDF3826527D5}
 		{46ADC8B8-2F14-4C31-87CA-95B71EE09EF9} = {3F76E0FB-D06B-47DE-B455-DDF3826527D5}
+		{1EC3D446-773C-C24A-3B56-80D9ECB61232} = {3F76E0FB-D06B-47DE-B455-DDF3826527D5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D2F37C1D-32F0-4BF2-AAEB-46B9D8C07D23}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\EFCore.DataAccessFilter\EFCore.DataAccessFilter.projitems*{09f59cf9-b450-4a07-a580-6df0bdb4cab7}*SharedItemsImports = 5
+		src\EFCore.DataAccessFilter\EFCore.DataAccessFilter.projitems*{1ec3d446-773c-c24a-3b56-80d9ecb61232}*SharedItemsImports = 5
 		src\EFCore.DataAccessFilter\EFCore.DataAccessFilter.projitems*{46adc8b8-2f14-4c31-87ca-95b71ee09ef9}*SharedItemsImports = 4
 		test\EFCore.DataAccessFilter.Tests\EFCore.DataAccessFilter.Tests.projitems*{5c056b4d-325d-4f48-88f9-92507ea1f84b}*SharedItemsImports = 5
 		test\EFCore.DataAccessFilter.Tests\EFCore.DataAccessFilter.Tests.projitems*{5e17c8e8-0bc8-4f7c-a022-c8104a415628}*SharedItemsImports = 13
-		src\EFCore.DataAccessFilter\EFCore.DataAccessFilter.projitems*{6b094c39-e11a-4aef-9e1a-90ef1a8df735}*SharedItemsImports = 5
 		src\EFCore.DataAccessFilter\EFCore.DataAccessFilter.projitems*{cf0a161a-99ba-4f01-af5e-16c6fcbc85ae}*SharedItemsImports = 13
 		test\EFCore.DataAccessFilter.Tests\EFCore.DataAccessFilter.Tests.projitems*{d0b8734c-340f-4b2a-80ee-c00afdd59e13}*SharedItemsImports = 4
 	EndGlobalSection

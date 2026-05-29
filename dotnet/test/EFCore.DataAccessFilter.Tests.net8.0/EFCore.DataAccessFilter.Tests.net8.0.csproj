@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -28,12 +28,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FUSE-fx.EntityAnnotations" Version="4.1.2" />
+    <PackageReference Include="FUSE-fx.EntityAnnotations" Version="4.2.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="3.9.1" />
     <PackageReference Include="MSTest.TestFramework" Version="3.9.1" />
-    <PackageReference Include="coverlet.collector" Version="1.3.0" />
-    <PackageReference Include="System.Numerics.Vectors" Version="4.6.1" />
+    <!--<PackageReference Include="System.Numerics.Vectors" Version="4.6.1" />-->
   </ItemGroup>
 
   <ItemGroup>

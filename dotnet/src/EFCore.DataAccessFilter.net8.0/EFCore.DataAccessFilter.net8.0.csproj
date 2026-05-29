@@ -39,7 +39,7 @@
   <Import Project="..\EFCore.DataAccessFilter\EFCore.DataAccessFilter.projitems" Label="Shared" />
 
   <ItemGroup>
-    <PackageReference Include="FUSE-fx.EntityAnnotations" Version="4.1.2" />
+    <PackageReference Include="FUSE-fx.EntityAnnotations" Version="4.2.2" />
   </ItemGroup>
 
 </Project>
